@@ -1,0 +1,48 @@
+﻿@using umbraco.MacroEngines;
+
+@{
+  dynamic racers = new DynamicNode(1248);
+}
+
+<div class="row-fluid">
+  <div class="span6">
+    <h3>yo</h3>
+    <ul class="ticks">
+@{
+    
+    foreach(var racer in racers.Racer)
+    {     
+     if (racer.Respected)
+     {
+     <li><a href="http://members.iracing.com/membersite/member/CareerStats.do?custid=@racer.iRacingId" 
+             target="_blank" 
+             data-toggle="tooltip" 
+             title="@racer.Notes">@racer.Name</a>
+     </li>     
+     }
+    }
+}
+    </ul>
+  </div>
+  <div class="span6">
+    <h3>no</h3>
+    <ul class="crosses">
+@{
+    foreach(var racer in racers.Racer)
+    {
+     if (!racer.Respected) 
+     {
+      <li><a href="http://members.iracing.com/membersite/member/CareerStats.do?custid=@racer.iRacingId" 
+             target="_blank" 
+             data-toggle="tooltip" 
+             title="@racer.Notes">@racer.Name</a>
+     </li>
+     }
+    }
+}
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
+$('[data-toggle="tooltip"]').tooltip({ html: true, placement: 'right'});
+</script>

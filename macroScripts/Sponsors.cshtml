@@ -1,0 +1,13 @@
+﻿@using umbraco.MacroEngines;
+
+<div style="margin: 40px; color: #fff;">
+<h3>Partners</h3>
+@{
+  dynamic partners = new DynamicNode(1240);
+ foreach(var partner in partners.Partner)
+ {
+    var img = Model.MediaById(partner.partnerImage);
+   <img src="@img.Url" alt="@partner.Name"></img>
+  }
+}
+</div>

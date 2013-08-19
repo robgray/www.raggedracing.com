@@ -1,0 +1,37 @@
+﻿@using umbraco.MacroEngines;
+@functions {
+  public static string ContentOrTeaser(dynamic node)
+  {
+     var output = node.bodyText.ToString();   
+     if (node.teaser.ToString().Length > 0)
+       output = node.teaser.ToString();
+   
+     output = output.Substring(200) + "...";
+     return output;
+  }
+}
+@{
+  var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+  var items = new List<dynamic>();
+  
+  dynamic homeNode = new DynamicNode(1057);
+  var home = new umbraco.NodeFactory.Node(1057);
+  
+  var page = int.Parse(Request.QueryString["p"] ?? "1");
+  var pageSize = int.Parse(Request.QueryString["ps"] ?? "16");
+  
+  var blogItems = homeNode.Descendants("umbBlogPost").OrderBy("PostDate desc").Skip(page - 1).Take(pageSize);
+  
+  foreach(var blogItem in blogItems)
+  {
+    var item = new {     
+      Url = blogItem.NiceUrl,
+      Title = blogItem.Name,
+      PostDate = blogItem.PostDate,                    
+      Content = ContentOrTeaser(blogItem)      
+    };
+   
+     items.Add(item);
+  }  
+}  
+@Html.Raw(serializer.Serialize(items));

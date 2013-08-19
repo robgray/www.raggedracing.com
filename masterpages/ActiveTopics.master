@@ -1,0 +1,10 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/ForumMaster.master" AutoEventWireup="true" %>
+
+<asp:content ContentPlaceHolderId="forumhead" runat="server">
+  
+</asp:content>
+
+<asp:content ContentPlaceHolderId="ForumBody" runat="server">
+	<h1>Active Topics</h1>
+  	<umbraco:Macro Alias="nForumActiveTopics" runat="server"></umbraco:Macro>
+</asp:content>

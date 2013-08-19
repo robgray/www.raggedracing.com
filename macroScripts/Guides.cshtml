@@ -1,0 +1,42 @@
+﻿@using umbraco.MacroEngines;
+@{
+  var guideType = Request.QueryString["type"];
+  dynamic homeNode = new DynamicNode(1057); 
+  dynamic articleTypesNode = new DynamicNode(1259);
+  
+  var whereFilter = "urlAlias == \"" + guideType + "\"";
+  var articleTypeNode = articleTypesNode.Children.Where(whereFilter).Take(1).FirstOrDefault();
+  var articleType = 0;
+  if (articleTypeNode != null)
+  {
+    articleType = articleTypeNode.Id;
+  }
+  
+  var articles = articleType != 0 
+                    ? homeNode.Descendants("umbBlogPost").Where("articleType == \"" + articleType + "\"") 
+                    : homeNode.Descendants("umbBlogPost").Where("articleType != \"\" && articleType != \"-1\"", false);             
+            
+  var count = articles.Count();
+}
+
+<ul>
+@foreach(var article in articles)
+{ 
+ <li>  
+   <div class="media">
+     <a href="@article.Url" name="@article.name" class="pull-left">   
+        <img class="media-object" src="@article.MediaById(article.thumbnail).Url" width="120" height="120" />
+     </a>
+     <div class="media-body">
+       <a href="@article.Url" class="media-heading">@article.Name</a>
+       @article.teaser
+     </div>
+   </div>   
+ </li> 
+ }
+<ul>
+
+
+
+
+

@@ -1,0 +1,49 @@
+﻿@using umbraco.MacroEngines;
+
+@{
+  dynamic realRacers = new DynamicNode(1460);
+}
+
+<div class="row-fluid">  
+  @{
+    foreach(var category in realRacers.Descendants("RacerFolder"))
+    {
+     <div class="span3 realracers">
+     <h3>@category.Name</h3>
+     @foreach (var racer in category.Racer)
+     {
+      <div><label>@racer.Name</label><a href="http://members.iracing.com/membersite/member/CareerStats.do?custid=@racer.iRacingId" 
+             target="_blank" title="iRacing Profile" data-toggle="tooltip"><img class="iracing" src="/css/iracing.png" height="16" width="16"/></a>
+      @if(!string.IsNullOrEmpty(racer.website))
+      {
+        <a href="@racer.website" data-toggle="tooltip" title="Website"><img class="website" src="/css/globe.png" height="16" width="16" /></a>
+       }
+      </div>
+      }
+     </div>
+     }    
+    }
+
+@if (realRacers.Children.Where("nodeTypeAlias == \"Racer\"").Count() > 0)
+{
+    <div class="span3 realracers">
+     <h3>Unknown</h3>
+    @foreach(var racer in realRacers.Children)
+    {
+     if (racer.NodeTypeAlias == "Racer")     
+     {
+      <div><label>@racer.Name</label><a href="http://members.iracing.com/membersite/member/CareerStats.do?custid=@racer.iRacingId" 
+             target="_blank" title="iRacing Profile" data-toggle="tooltip"><img class="iracing" src="/css/iracing.png" height="16" width="16" /></a>
+      @if(!string.IsNullOrEmpty(racer.website))
+      {
+        <a href="@racer.website" data-toggle="tooltip" title="Website"><img class="website"/></a>
+       }
+      </div>
+      }    
+     } 
+   </div>  
+}
+</div>
+<script type="text/javascript">
+$('[data-toggle="tooltip"]').tooltip({ html: true, placement: 'top'});
+</script>

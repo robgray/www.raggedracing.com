@@ -1,0 +1,26 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/umbMaster.master" AutoEventWireup="true" %>
+  
+<asp:content ContentPlaceHolderId="cp_content" runat="server">
+  <div class="main">
+    <asp:contentplaceholder id="main" runat="server"></asp:contentplaceholder>    
+  </div>  
+  <div class="sidebar">
+    <asp:contentplaceholder id="sidebar" runat="server">
+      
+    
+      <a class="pod guides" href="/guides">
+        <h2>Guides</h2>
+      </a>
+    
+      <a class="pod tips" href="/driving-tips">
+        <h2>Tips</h2>
+      </a>
+    
+      <a class="pod f1speed" href="/2012/3/27/introducing-f1speed">
+        <h2>F1Speed</h2>
+      </a>
+    </asp:contentplaceholder>    
+  </div>
+                
+  
+</asp:content>

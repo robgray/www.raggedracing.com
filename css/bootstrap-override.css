@@ -1,0 +1,48 @@
+main 
+{
+  font: normal 120%/1.5 "Segoe UI" , "Verdana" , Arial, Sans-serif;
+}
+
+.navbar .nav > li > a, .navbar .brand
+{
+  color: #ddd;
+  text-shadow: 0 1px 0 #111;
+  border-bottom: 3px solid #0a0a0a;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.navbar .nav > li > a:hover
+{
+  border-bottom: 3px solid yellow;  
+  color: yellow;
+  background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGklEQVQIW2P4//8/AxI2RuGAaBQOTADOAWEAjAwwnWPnCWYAAAAASUVORK5CYII=);
+}
+
+.navbar {
+  text-transform: uppercase;
+  line-height: 40px; 
+}
+
+.navbar {
+  margin-bottom: 0; }
+
+.navbar-inner { -webkit-border-radius: 0px; border-radius: 0px; }
+
+
+a { color: #005580 }
+a:hover { color: ##0088cc; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */

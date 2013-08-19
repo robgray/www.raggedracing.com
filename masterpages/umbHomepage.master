@@ -1,0 +1,25 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/umbMaster.master" AutoEventWireup="true" %>
+    
+<asp:content contentplaceholderid="cp_content" runat="server">      
+    
+  <div class="row-fluid">
+    <div class="span8">
+      <header class="jumbotron">               
+      </header>       
+    </div>
+    <div class="span2">
+      <umbraco:Macro Alias="SocialMedia" runat="server"></umbraco:Macro>
+    </div>
+  </div>
+      
+    <form action="/search" style="display: none">
+      <input id="searchField" name="search" type="text" class="input-xxlarge" placeholder="Enter search" autocomplete="false" />
+    </form>
+    
+    <div class="row-fluid">
+      <div class="span12">
+        <umbraco:Macro Alias="HomepageListing" runat="server"></umbraco:Macro>    
+      </div>
+    </div>
+  
+</asp:content>

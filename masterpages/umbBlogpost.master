@@ -1,0 +1,65 @@
+﻿<%@ master language="C#" MasterPageFile="~/masterpages/umbMaster.master" autoeventwireup="true" %>
+
+  
+<asp:content contentplaceholderid="cp_head" runat="server">
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.4.min.js"></script>
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.5.5/jquery.validate.min.js"></script>
+  <script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript">stLight.options({publisher: "1f966906-e05e-4195-b3f4-3bf7e0ba1d3d"}); </script>  
+</asp:content>
+  
+<asp:content contentplaceholderid="cp_content" runat="server">
+  <div class="textpage">    
+    <h2 class="entry-title"><umbraco:Item field="pageName" runat="server"></umbraco:Item></h2>
+  
+   
+    <div class="entry-date">
+      <abbr class='published' title='<umbraco:Item field="PostDate" useIfEmpty="createDate" formatAsDate="true" runat="server"/>'>
+          <umbraco:Item field="PostDate" useIfEmpty="createDate" formatAsDate="true" runat="server"/>
+      </abbr>
+    </div>
+  
+    <div class="entry-content" style="margin-bottom: 40px">
+      <umbraco:Item field="bodyText" runat="server"></umbraco:Item> 
+    </div> 
+
+   <!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4de5af6167666cbc"></script>
+<!-- AddThis Button END -->
+    
+    <div class="entry-meta">    
+    
+    This entry was written by <span class="author vcard"><span class="fn n"><umbraco:Item field="writerName" runat="server"/></span></span>,
+    posted on <abbr class="published" title='<umbraco:Item ID="Item1" field="PostDate" formatAsDate="true" runat="server"/>'><umbraco:Item field="PostDate" formatAsDate="true" runat="server"/></abbr>
+    
+    Bookmark the <a href='<umbraco:Item field="pageID" runat="server" xslt="umbraco.library:NiceUrl({0})"></umbraco:Item>' title="Permalink" rel="bookmark">permalink</a>.
+
+    Follow any comments here with the
+    <umbraco:Item field="pageID" runat="server" xslt="concat('&lt;a href=&quot;',umbraco.library:Replace(umbraco.library:NiceUrl({0}),'.aspx',''),'/commentrss.aspx','&quot; title=&quot;Comments RSS&quot; rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot;&gt;','RSS feed for this post','&lt;/a&gt;')" xsltDisableEscaping="true" ></umbraco:Item>.
+        You can <a class="comment-link" href="#respond" title="Post a comment">post a comment</a>.
+  </div>
+  
+  <div id="related">
+    <umbraco:Macro Alias="BlogpostRelatedPages" runat="server"></umbraco:Macro>
+  </div>
+
+  <div>      
+      <umbraco:Macro Alias="BlogPostListComments" runat="server"></umbraco:Macro>
+
+      <div id="respond">
+        <h3>Post a comment</h3>        
+        <umbraco:Macro CommentsClosedMessage="Sorry, comments are closed" Alias="frmBlogComment" runat="server"></umbraco:Macro>
+      </div>      
+  </div>
+  </div>
+    <script>
+      var options={ "service": "facebook", "timer": { "countdown": 30, "interval": 10, "enable": false}, "frictionlessShare": true, "style": "6", "publisher": "ur-a596b902-eadc-2d92-515e-ef0aeb2d3d66"};
+      var st_service_widget = new sharethis.widgets.serviceWidget(options);
+    </script>
+</asp:content>

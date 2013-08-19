@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<imageIndex>
+  <image>
+    <originalFileName>twitter-bird-dark-bgs.png</originalFileName>
+    <size>3932</size>
+    <dateLastModified>Sat, 03 Nov 2012 03:40:23 GMT</dateLastModified>
+    <width>300</width>
+    <height>300</height>
+    <cachedImage>
+      <fileName>qtem5fle.png</fileName>
+      <dateCreated>Sat, 03 Nov 2012 03:50:55 GMT</dateCreated>
+      <dateLastAccessed>Wed, 21 Nov 2012 09:02:37 GMT</dateLastAccessed>
+      <imageFormat>png</imageFormat>
+      <width>64</width>
+      <height>64</height>
+      <bgColor>#FFFFFF</bgColor>
+      <transparent>True</transparent>
+      <border>0</border>
+      <borderColor>#000000</borderColor>
+      <constrain>False</constrain>
+      <pad>False</pad>
+    </cachedImage>
+  </image>
+</imageIndex>

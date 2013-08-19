@@ -1,0 +1,12 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/masterpages/TwoColumn.master" AutoEventWireup="true" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="main" runat="server">
+<div id="content" class="textpage">
+  
+      <div id="contentHeader">  
+          <h2><umbraco:Item ID="Item1" runat="server" field="pageName"/></h2>
+      </div>
+      
+      <umbraco:Item ID="Item2" runat="server" field="bodyText" />
+</div>
+
+</asp:Content>
